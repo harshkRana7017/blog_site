@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Article</title>
+  </head>
+  <body>
+    <header>Add Article</header>
+    <form method="POST" action="{{url_for('add_article')}}">
+      <input type="text" name="title" /> <input type="text" name="content" />
+      <button type="submit">Add Article</button>
+    </form>
+  </body>
+</html>

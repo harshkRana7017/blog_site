@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN FORM</title>
+  </head>
+  <body>
+    <header>{%block formName %}Login Form {%endblock%}</header>
+    <form method="POST" action="{{url_for('login')}}">
+      <input
+        type="text"
+        name="username"
+        placeholder="Enter Username"
+        required
+      />
+      <input type="text" name="password" placeholder="Enter Password" />
+      <button type="submit">login</button>
+    </form>
+  </body>
+</html>

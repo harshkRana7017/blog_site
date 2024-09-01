@@ -14,6 +14,10 @@ heading %}Article-Page{%endblock%} {%block content%}
   <li>
     <h2><strong>author:</strong>{{article.author}}</h2>
   </li>
+  <button>
+    <a href="{{url_for('add_articleForm')}}">Add Article</a>
+  </button>
+  <button>Edit Article</button>
 
   {% endfor %}
 </ul>
