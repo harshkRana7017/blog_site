@@ -104,7 +104,7 @@ def update_articleForm(request:Request, article_id:int, user:dict =Depends(get_c
 
 @app.post('/article/update/{article_id}')
 def update_article(request:Request,article_id: int, title:str =Form(...), content:str=Form(...), user:dict=Depends(get_current_user)):
-    if user["id_admin"]:
+    if user["is_admin"]:
         article_path=Path(f"Articles/{article_id}.json")
         article_path.write_text(json.dumps({"id":article_id, "title":title, "content":content, "author":USERNAME, "date": datetime.now().strftime('%Y-%m-%d')}))
         return templates.TemplateResponse('article.html', {"request":request,"article":json.loads(article_path.read_text())})
