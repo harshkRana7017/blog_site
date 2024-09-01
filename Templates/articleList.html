@@ -1,6 +1,11 @@
 {% extends "index.html"%} {% block title %}Article-Page{%endblock%} {% block
 heading %}Article-Page{%endblock%} {%block content%}
 <h1>Article List</h1>
+{% if user.is_admin %}
+<button>
+  <a href="{{url_for('add_articleForm')}}">Add Article</a>
+</button>
+{%endif%}
 <ul>
   {% for article in articles %}
   <a href="{{url_for('read_article', article_id=article.id)}}"
@@ -14,11 +19,14 @@ heading %}Article-Page{%endblock%} {%block content%}
   <li>
     <h2><strong>author:</strong>{{article.author}}</h2>
   </li>
+  <li>
+    <h2><strong>content:</strong>{{article.content}}</h2>
+  </li>
+  {% if user.is_admin %}
   <button>
-    <a href="{{url_for('add_articleForm')}}">Add Article</a>
-  </button>
-  <button>Edit Article</button>
-
-  {% endfor %}
+    <a href="{{url_for('update_articleForm', article_id=article.id)}}"
+      >Edit Article</a
+    ></button
+  >{%endif%} {% endfor %}
 </ul>
 {%endblock%}
